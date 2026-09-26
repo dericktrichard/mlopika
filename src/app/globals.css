@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+/* ---- Design tokens (light mode defaults) ---- */
+@theme {
+  --color-bg: #fafafa;
+  --color-fg: #000000;
+  --color-muted: #6b6b6b;
+  --color-border: #e5e5e5;
+  --color-accent: #c6ff00;
+  --color-accent-fg: #000000;
+  --color-danger: #e02424;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sharp: 0px;
+  --radius-soft: 4px;
+}
+
+/* Class-based dark mode variant (v4 syntax) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Dark mode token overrides ---- */
+.dark {
+  --color-bg: #0a0a0a;
+  --color-fg: #ffffff;
+  --color-muted: #a3a3a3;
+  --color-border: #262626;
+  --color-accent: #c6ff00;
+  --color-accent-fg: #000000;
+  --color-danger: #ff5c5c;
+}
+
+/* ---- Base element styling ---- */
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+* {
+  border-color: var(--color-border);
+}
