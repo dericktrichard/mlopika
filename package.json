@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "tsx --env-file=.env.local scripts/seed-data.ts"
   },
   "overrides": {
     "@grpc/grpc-js": "^1.14.5"
@@ -15,6 +16,7 @@
     "clsx": "^2.1.1",
     "firebase": "^12.19.0",
     "firebase-admin": "^14.5.0",
+    "geofire-common": "^6.0.0",
     "lucide-react": "^1.48.0",
     "next": "16.3.6",
     "react": "19.2.8",
@@ -31,11 +33,13 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   },
   "allowScripts": {
     "@firebase/util@1.15.3": true,
     "protobufjs@7.6.6": true,
-    "unrs-resolver@1.12.2": true
+    "unrs-resolver@1.12.2": true,
+    "esbuild@0.28.2": true
   }
 }

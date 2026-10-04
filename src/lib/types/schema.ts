@@ -31,8 +31,9 @@ export interface IngredientDoc {
 export interface RecipeDoc {
   id: string;
   title: string;
-  ingredientIds: string[]; // references into `ingredients`, indexed for array-contains-any
-  requiredIngredientIds: string[]; // subset that CANNOT be substituted/skipped
+  imageUrl?: string;
+  ingredientIds: string[];
+  requiredIngredientIds: string[]; 
   instructions: string[];
   dietTags: ("balanced" | "high-protein" | "vegetarian" | "quick" | "budget")[];
   macroProfile: {
@@ -95,5 +96,15 @@ export interface SubscriptionDoc {
   status: "active" | "cancelled" | "past_due" | "none";
   currentPeriodEnd: string | null; // ISO 8601
   linkedFamilyMemberIds: string[]; // for Family Tier, up to 6
+  updatedAt: string;
+}
+
+export type WeekDay = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
+
+export interface WeeklyPlanDoc {
+  id: string; // `${userId}_${weekStartDate}`
+  userId: string;
+  weekStartDate: string; // ISO date, the Monday of that week
+  days: { day: WeekDay; recipeIds: string[] }[];
   updatedAt: string;
 }
