@@ -1,0 +1,20 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "recipes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "ingredientIds", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "dietTags", "arrayConfig": "CONTAINS" }
+      ]
+    },
+    {
+      "collectionGroup": "eateries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "location.geohash", "order": "ASCENDING" },
+        { "fieldPath": "ratingSummary.averageRating", "order": "DESCENDING" }
+      ]
+    }
+  ]
+}
